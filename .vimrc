@@ -11,6 +11,23 @@ let maplocalleader="\<space>"
 "Number bar
 set number relativenumber numberwidth=3 
 
+"Better autocompletion
+set wildmenu
+
+"Detect changes outside of vim
+set autoread
+
+"Show the title
+set title
+
+"Enable mouse
+set ttyfast
+set mouse=a 
+
+"Highlight currrent line and show position in bar
+set cursorline 
+set ruler
+
 "Tab Width always 4 spaces
 set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
 
@@ -25,7 +42,7 @@ set splitright splitbelow
 set fillchars+=vert:\  
 
 "Quick Edit/Source vimrc
-nnoremap <leader>ev :vsplit ~/.dotfiles/.vimrc<cr>
+nnoremap <silent> <leader>ev :vsplit ~/.dotfiles/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "Create new Lines without Insert, small
@@ -42,20 +59,30 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
-"Run the q macro
-nnoremap <leader>q @q
-
-"Adding matching pairs
-set matchpairs+=<:>
-
 "Window movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" AutoCommands-------- {{{
-"---Javascript/Java
+"Window resize with arrow key
+nnoremap <silent> <right> :vertical resize +5<cr>
+nnoremap <silent> <left>  :vertical resize -5<cr>
+nnoremap <silent> <up>    :resize +5<cr>
+nnoremap <silent> <down>  :resize -5<cr>
+
+"Easier scrolling
+nnoremap <s-e> 2<c-e>
+nnoremap <s-r> 2<c-y>
+
+"Run the q macro
+nnoremap <leader>q @q
+
+"Adding matching pairs
+set matchpairs+=<:>
+
+
+" AutoCommands-------- {{{ "---Javascript/Java
 augroup cstyle
     autocmd!
     autocmd FileType javascript,java nnoremap <buffer> <localleader>c I//<esc>
@@ -81,8 +108,12 @@ augroup END
 "---General 
 augroup general
     autocmd!
+    "fix for <cr> new line mapping
     autocmd CmdwinEnter * nnoremap <CR> <CR>
     autocmd BufReadPost quickfix nnoremap <CR> <CR>
+    
+    "Update dir for current buffer
+    autocmd BufEnter * silent! cd %:p:h
 augroup END
 
 " }}}
