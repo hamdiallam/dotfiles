@@ -10,6 +10,10 @@ colorscheme solarized
 let mapleader="\<space>"
 let maplocalleader="\<space>"
 
+"Better window switch
+nnoremap <leader>w <c-w>
+nnoremap <leader>w- <c-w>s
+
 "Number bar
 set number relativenumber numberwidth=3 
 
