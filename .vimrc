@@ -2,7 +2,9 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax enable
 set background=dark
+set nocompatible
 colorscheme solarized
+
 
 "Leader -> spacebar
 let mapleader="\<space>"
@@ -38,12 +40,10 @@ set ignorecase
 "Split windows more naturally
 set splitright splitbelow
 
-"Removing | from vsplit bar
-set fillchars+=vert:\  
 
 "Quick Edit/Source vimrc
 nnoremap <silent> <leader>ev :vsplit ~/.dotfiles/.vimrc<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr> 
 
 "Create new Lines without Insert, small
 "fixes are placed in the autocommands 
@@ -81,6 +81,12 @@ nnoremap <leader>q @q
 "Adding matching pairs
 set matchpairs+=<:>
 
+"Nerdtree
+let NERDTreeShowHidden=1
+let g:NerdTreeQuitOnOpen=0
+
+"Tmux 
+let g:tmux_navigator_save_on_switch=2
 
 " AutoCommands-------- {{{ "---Javascript/Java
 augroup cstyle
