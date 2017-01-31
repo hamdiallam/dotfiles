@@ -1,18 +1,20 @@
 execute pathogen#infect()
 filetype plugin indent on
 syntax enable
-set background=dark
+set background=light
 set nocompatible
 colorscheme solarized
 
-
 "Leader -> spacebar
 let mapleader="\<space>"
-let maplocalleader="\<space>"
 
-"Better window switch
-nnoremap <leader>w <c-w>
-nnoremap <leader>w- <c-w>s
+"More sane windows splits.
+"Same way as my tmux conf
+nnoremap <C-b><Bar> :vsplit<cr>
+nnoremap <C-b>- :split<cr>
+
+"Use OSX clipboard
+set clipboard=unnamed 
 
 "Number bar
 set number relativenumber numberwidth=3 
@@ -35,7 +37,7 @@ set cursorline
 set ruler
 
 "Tab Width always 4 spaces
-set tabstop=4 shiftwidth=4 softtabstop=0 expandtab smarttab
+set tabstop=4 shiftwidth=4 expandtab
 
 "No wrapping, ignore case on search
 set nowrap 
@@ -58,9 +60,9 @@ nmap <leader>' ysiw'
 nmap <leader>" ysiw"
 
 "Autoresize to active split
-set winwidth=104
-set winheight=5
-set winminheight=5
+set winwidth=95
+set winheight=8
+set winminheight=8
 set winheight=999
 
 "Window movement
@@ -74,10 +76,6 @@ nnoremap <silent> <right> :vertical resize +5<cr>
 nnoremap <silent> <left>  :vertical resize -5<cr>
 nnoremap <silent> <up>    :resize +5<cr>
 nnoremap <silent> <down>  :resize -5<cr>
-
-"Easier scrolling
-nnoremap <s-e> 2<c-e>
-nnoremap <s-r> 2<c-y>
 
 "Run the q macro
 nnoremap <leader>q @q
@@ -94,38 +92,39 @@ let g:tmux_navigator_save_on_switch=2
 
 " AutoCommands-------- {{{ "---Javascript/Java
 augroup cstyle
-    autocmd!
-    autocmd FileType javascript,java nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType javascript,java iabbrev <buffer> iff if()<left>
-    autocmd FileType javascript iabbrev <buffer> func function()<left>
-    autocmd FileType java iabbrev <buffer> psvm public static void main(String[] args){<esc>o
+  autocmd!
+  autocmd FileType javascript,java nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType javascript,java iabbrev <buffer> iff if()<left>
+  autocmd FileType javascript iabbrev <buffer> func function()<left>
+  autocmd FileType java iabbrev <buffer> psvm public static void main(String[] args){<esc>o
 augroup END
 
 "---Python
 augroup py
-    autocmd!
-    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python iabbrev <buffer> iff if:<left>
-    autocmd FileType python iabbrev <buffer> func def func():<left><left>
+  autocmd!
+  autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+  autocmd FileType python iabbrev <buffer> iff if:<left>
 augroup END
 
 "---VimScript
 augroup vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 "---General 
 augroup general
-    autocmd!
-    "fix for <cr> new line mapping
-    autocmd CmdwinEnter * nnoremap <CR> <CR>
-    autocmd BufReadPost quickfix nnoremap <CR> <CR>
-    
-    "Update dir for current buffer
-    autocmd BufEnter * silent! cd %:p:h
-augroup END
+  autocmd!
+  "fix for <cr> new line mapping
+  autocmd CmdwinEnter * nnoremap <CR> <CR>
+  autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
+  "Update dir for current buffer
+  autocmd BufEnter * silent! cd %:p:h
+
+  "Automatically reblance windows
+  autocmd VimResized * :wincmd 
+augroup END
 " }}}
 
 
