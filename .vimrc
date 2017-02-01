@@ -1,4 +1,6 @@
-execute pathogen#infect()
+"Vundle plugins"
+source ~/.vim/vundlePlugins.vim
+
 filetype plugin indent on
 syntax enable
 set background=light
