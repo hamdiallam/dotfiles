@@ -3,23 +3,33 @@ source ~/.vim/vundlePlugins.vim
 
 filetype plugin indent on
 syntax enable
-set background=light
 set nocompatible
-colorscheme solarized
+
+set term=screen-256color
+"let g:neodark#use_custom_terminal_theme = 1
+colorscheme neodark
 
 "Leader -> spacebar
-let mapleader="\<space>"
+let mapleader=","
 
 "More sane windows splits.
 "Same way as my tmux conf
-nnoremap <C-b><Bar> :vsplit<cr>
-nnoremap <C-b>- :split<cr>
+nnoremap <leader><Bar> :vsplit<cr>
+nnoremap <leader>- :split<cr>
+
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '│'
+
+"remove vim status line
+set noshowmode
 
 "Use OSX clipboard
 set clipboard=unnamed 
 
 "Number bar
-set number relativenumber numberwidth=3 
+set number numberwidth=3 
 
 "Better autocompletion
 set wildmenu
@@ -61,12 +71,6 @@ nnoremap <CR> o<Esc>
 nmap <leader>' ysiw'
 nmap <leader>" ysiw"
 
-"Autoresize to active split
-set winwidth=95
-set winheight=8
-set winminheight=8
-set winheight=999
-
 "Window movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -79,8 +83,24 @@ nnoremap <silent> <left>  :vertical resize -5<cr>
 nnoremap <silent> <up>    :resize +5<cr>
 nnoremap <silent> <down>  :resize -5<cr>
 
-"Run the q macro
-nnoremap <leader>q @q
+"Airline buffer list at the top
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#wordcount#enabled = 1
+let g:airline#extensions#tabline#buffers_label = 'b'
+let g:airline_theme='bubblegum'
+set laststatus=2
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"Configure systastic with ESLint
+let g:syntastic_javascript_checkers = ['eslint']
+
+"Allow JSX in js files
+let g:jsx_ext_required = 0
 
 "Adding matching pairs
 set matchpairs+=<:>
@@ -88,9 +108,6 @@ set matchpairs+=<:>
 "Nerdtree
 let NERDTreeShowHidden=1
 let g:NerdTreeQuitOnOpen=0
-
-"Tmux 
-let g:tmux_navigator_save_on_switch=2
 
 " AutoCommands-------- {{{ "---Javascript/Java
 augroup cstyle
@@ -123,11 +140,7 @@ augroup general
 
   "Update dir for current buffer
   autocmd BufEnter * silent! cd %:p:h
-
-  "Automatically reblance windows
-  autocmd VimResized * :wincmd 
+  
 augroup END
 " }}}
-
-
 
