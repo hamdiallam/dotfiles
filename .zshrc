@@ -11,12 +11,20 @@ promptinit
 prompt redhat
 compinit
 
+
+# 10ms for key sequences
+KEYTIMEOUT=1
+
 # Autocompletion arrow keys
 zstyle ':completion:*' menu select
 
-#Ansi Colors in iTerm2
+# Ansi Colors in iTerm2
 export CLICOLOR=1
 #Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
 
+# React-Native Android Stuff
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
