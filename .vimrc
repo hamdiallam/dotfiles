@@ -1,6 +1,7 @@
 "Vundle plugins"
 source ~/.vim/vundlePlugins.vim
 
+
 filetype plugin indent on
 syntax enable
 set nocompatible
@@ -9,8 +10,11 @@ set term=screen-256color
 "let g:neodark#use_custom_terminal_theme = 1
 colorscheme neodark
 
-"Leader -> spacebar
+"Leader  
 let mapleader=","
+
+"Show Quotes in Json files
+set conceallevel=0
 
 "More sane windows splits.
 "Same way as my tmux conf
@@ -49,7 +53,7 @@ set cursorline
 set ruler
 
 "Tab Width always 4 spaces
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 
 "No wrapping, ignore case on search
 set nowrap 
@@ -57,7 +61,6 @@ set ignorecase
 
 "Split windows more naturally
 set splitright splitbelow
-
 
 "Quick Edit/Source vimrc
 nnoremap <silent> <leader>ev :vsplit ~/.dotfiles/.vimrc<cr>
@@ -85,6 +88,7 @@ nnoremap <silent> <down>  :resize -5<cr>
 
 "Airline buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#wordcount#enabled = 1
@@ -98,6 +102,17 @@ endif
 
 "Configure systastic with ESLint
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+
+"Ctrl-p settings
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 "Allow JSX in js files
 let g:jsx_ext_required = 0
@@ -108,23 +123,13 @@ set matchpairs+=<:>
 "Nerdtree
 let NERDTreeShowHidden=1
 let g:NerdTreeQuitOnOpen=0
+let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+nnoremap <leader>ne :NERDTreeToggle<cr>
+
+"Ctrlp delete buffer feature
+call ctrlp_bdelete#init()
 
 " AutoCommands-------- {{{ "---Javascript/Java
-augroup cstyle
-  autocmd!
-  autocmd FileType javascript,java nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType javascript,java iabbrev <buffer> iff if()<left>
-  autocmd FileType javascript iabbrev <buffer> func function()<left>
-  autocmd FileType java iabbrev <buffer> psvm public static void main(String[] args){<esc>o
-augroup END
-
-"---Python
-augroup py
-  autocmd!
-  autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-  autocmd FileType python iabbrev <buffer> iff if:<left>
-augroup END
-
 "---VimScript
 augroup vim
   autocmd!

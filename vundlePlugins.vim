@@ -16,5 +16,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'd11wtq/ctrlp_bdelete.vim'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()     
