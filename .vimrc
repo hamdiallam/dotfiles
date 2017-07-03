@@ -26,8 +26,11 @@ nnoremap <leader>- :split<cr>
 " consistency with yanking
 nnoremap Y y$
 
-" fix write speed
+" no backups/swaps. I'll take the risk 
 set nobackup
+set noswapfile
+
+" One place for swp files
 
 " vertical line indentation
 let g:indentLine_color_term = 239
@@ -59,9 +62,14 @@ set mouse=a
 " remove line highlighting to improve scroll
 set nocursorline
 set nocursorcolumn
-
-" trying to improve scroll speed
 set lazyredraw
+set hidden " do not close buffers when left
+
+" highlight searches
+set hlsearch
+
+" paste mode for large bodies of text
+set pastetoggle=<F2>
 
 " tab width always 4 spaces
 set tabstop=2 shiftwidth=2 expandtab
