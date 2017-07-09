@@ -9,7 +9,9 @@ syntax enable
 set nocompatible
 
 set term=xterm-256color
-" let g:neodark#use_custom_terminal_theme = 1
+let g:neodark#use_256color = 1
+" let g:neodark#terminal_transparent = 1
+let g:neodark#use_custom_terminal_theme = 1
 colorscheme neodark
 
 " leader  
@@ -64,9 +66,8 @@ set nocursorline
 set nocursorcolumn
 set lazyredraw
 set hidden " do not close buffers when left
-
-" highlight searches
-set hlsearch
+set nohls
+set scrolljump=5
 
 " paste mode for large bodies of text
 set pastetoggle=<F2>
@@ -74,9 +75,12 @@ set pastetoggle=<F2>
 " tab width always 4 spaces
 set tabstop=2 shiftwidth=2 expandtab
 
-" no wrapping, ignore case on search
+" no wrapping
 set nowrap 
+
+" no highlighting and search incrementally
 set ignorecase 
+set incsearch
 
 " split windows more naturally
 set splitright splitbelow
@@ -106,6 +110,10 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <C-x> :bdelete<CR>
 
+" airline status line
+set laststatus=2
+
+
 " airline buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -113,8 +121,6 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'b'
-let g:airline_theme='bubblegum'
-set laststatus=2
 let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -122,23 +128,18 @@ endif
 
 " configure systastic with ESLint
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 " Ctrl-p settings
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|DS_Store)|(\.(swp|ico|git|svn|hg))$'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*,*/.DS_Store
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+  \ 'file': '\v\.(exe|so|dll|swp)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
 " allow JSX in js files
 let g:jsx_ext_required = 0
-
-" adding matching pairs
-set matchpairs+=<:>
 
 " Nerdtree
 let NERDTreeShowHidden=1
@@ -149,7 +150,6 @@ nnoremap <leader>ne :NERDTreeToggle<cr>
 "---VimScript
 augroup vim
   autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 "---General 
