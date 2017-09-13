@@ -5,39 +5,26 @@ source ~/.vim/vundlePlugins.vim
 call ctrlp_bdelete#init()
 
 filetype plugin indent on
-syntax enable
 set nocompatible
 
-set term=xterm-256color
-let g:neodark#use_256color = 1
-" let g:neodark#terminal_transparent = 1
+syntax enable
 let g:neodark#use_custom_terminal_theme = 1
 colorscheme neodark
 
 " leader  
 let mapleader=","
 
-" show Quotes in Json files
-set conceallevel=0
+" maybe causing the slowdown?
+set fillchars=diff:·
 
 " more sane windows splits.
 " same way as my tmux conf
 nnoremap <leader><Bar> :vsplit<cr>
 nnoremap <leader>- :split<cr>
 
-" consistency with yanking
-nnoremap Y y$
-
 " no backups/swaps. I'll take the risk 
 set nobackup
 set noswapfile
-
-" One place for swp files
-
-" vertical line indentation
-let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#09AA08'
-let g:indentLine_char = '│'
 
 " remove vim status line
 set noshowmode
@@ -61,13 +48,8 @@ set title
 set ttyfast
 set mouse=a 
 
-" remove line highlighting to improve scroll
-set nocursorline
-set nocursorcolumn
-set lazyredraw
-set hidden " do not close buffers when left
-set nohls
-set scrolljump=5
+" do not close buffer when left
+set hidden
 
 " paste mode for large bodies of text
 set pastetoggle=<F2>
@@ -113,11 +95,12 @@ nnoremap <C-x> :bdelete<CR>
 " airline status line
 set laststatus=2
 
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 
 " airline buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'b'
@@ -125,10 +108,6 @@ let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-" configure systastic with ESLint
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 " Ctrl-p settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*,*/.DS_Store
@@ -146,7 +125,9 @@ let NERDTreeShowHidden=1
 let g:NerdTreeQuitOnOpen=0
 let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 nnoremap <leader>ne :NERDTreeToggle<cr>
-" AutoCommands-------- {{{ "---Javascript/Java
+
+" AutoCommands
+
 "---VimScript
 augroup vim
   autocmd!
@@ -163,5 +144,3 @@ augroup general
   autocmd BufEnter * silent! cd %:p:h
   
 augroup END
-" }}}
-
