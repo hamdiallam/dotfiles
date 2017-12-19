@@ -27,9 +27,11 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+# force virtual environments for python
+# export PIP_REQUIRE_VIRTUALENV=true
 
-export PATH_OLD=$PATH
-alias anaconda_on='export PATH="/Users/hamdi/anaconda/bin:$PATH"'
+#export PATH_OLD=$PATH
+#alias anaconda_on='export PATH="/Users/hamdi/anaconda/bin:$PATH"'
 
 # turn anaconda off by restoring the backed up path
-alias anaconda_off='export PATH=$PATH_OLD'
+#alias anaconda_off='export PATH=$PATH_OLD'

@@ -54,7 +54,7 @@ set hidden
 " paste mode for large bodies of text
 set pastetoggle=<F2>
 
-" tab width always 4 spaces
+" tab width always 2 spaces
 set tabstop=2 shiftwidth=2 expandtab
 
 " no wrapping
