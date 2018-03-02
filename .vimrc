@@ -48,10 +48,11 @@ set title
 set ttyfast
 set mouse=a 
 
-" do not close buffer when left
+" do not close buffer when left. I'll manually close them
 set hidden
 
-" paste mode for large bodies of text
+" paste mode for large bodies of text. I don't think I've ever used this but
+" yeah
 set pastetoggle=<F2>
 
 " tab width always 2 spaces
