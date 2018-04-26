@@ -19,9 +19,6 @@ export CLICOLOR=1
 #Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
 
-# Brew python upgrade change for python2
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
 # React-Native Android Stuff
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
@@ -43,3 +40,9 @@ if [ -f '/Users/hamdi/google-cloud-sdk/completion.zsh.inc' ]; then source '/User
 
 # openssl module not found issue with django
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+
+# go lang
+export GOPATH=/usr/local/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin

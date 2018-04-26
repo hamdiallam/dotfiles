@@ -55,8 +55,8 @@ set hidden
 " yeah
 set pastetoggle=<F2>
 
-" tab width always 2 spaces
-set tabstop=2 shiftwidth=2 expandtab
+" tab width always 4 spaces
+set tabstop=4 shiftwidth=4 expandtab
 
 " no wrapping
 set nowrap 
