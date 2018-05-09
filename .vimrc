@@ -1,5 +1,5 @@
 " vundle plugins"
-source ~/.vim/vundlePlugins.vim
+source ~/.vim/plugins.vim
 
 " Ctrlp delete buffer feature
 call ctrlp_bdelete#init()
