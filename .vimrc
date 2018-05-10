@@ -14,6 +14,9 @@ colorscheme neodark
 " leader  
 let mapleader=","
 
+" update time to write to swap file
+set updatetime=100
+
 " maybe causing the slowdown?
 set fillchars=diff:·
 
