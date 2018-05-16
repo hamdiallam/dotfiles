@@ -50,3 +50,4 @@ export PATH=$PATH:$GOROOT/bin
 # gem
 export GEM_HOME=~/.gem
 export GEM_PATH=~/.gem
+export PATH=$PATH:$GEM_PATH/bin
