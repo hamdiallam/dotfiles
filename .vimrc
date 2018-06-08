@@ -9,7 +9,7 @@ endif
 source ~/.vim/plugins.vim
 
 " Ctrlp delete buffer feature
-call ctrlp_bdelete#init()
+" call ctrlp_bdelete#init()
 
 filetype plugin indent on
 set nocompatible
