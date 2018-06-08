@@ -16,8 +16,11 @@ zstyle ':completion:*' menu select
 
 # Ansi Colors in iTerm2
 export CLICOLOR=1
-#Set colors to match iTerm2 Terminal Colors
+# Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
+export EDITOR=/usr/local/bin/vim
+
+# Default editor
 
 # React-Native Android Stuff
 export ANDROID_HOME=${HOME}/Library/Android/sdk
