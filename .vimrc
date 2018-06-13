@@ -8,8 +8,8 @@ endif
 " Plugins"
 source ~/.vim/plugins.vim
 
-" Ctrlp delete buffer feature
-" call ctrlp_bdelete#init()
+Ctrlp delete buffer feature
+call ctrlp_bdelete#init()
 
 filetype plugin indent on
 set nocompatible
@@ -60,6 +60,9 @@ set mouse=a
 
 " do not close buffer when left. I'll manually close them
 set hidden
+
+" new way to close buffers. does not close the window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>.
 
 " paste mode for large bodies of text. I don't think I've ever used this but
 " yeah
