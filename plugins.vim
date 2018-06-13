@@ -22,8 +22,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Asynchronous linting engine. YES
 Plug 'w0rp/ale'
 
-" Plug 'ctrlpvim/ctrlp.vim' ~ Twitter source repo is too large
-" Plug 'd11wtq/ctrlp_bdelete.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " <leader>ww to select pane and repeat to swap
 Plug 'wesQ3/vim-windowswap'

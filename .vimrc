@@ -120,13 +120,16 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" Ctrl-p settings
+" Ctrl-p settings. enable saving the cache for large file directories
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*,*/.DS_Store
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
   \ 'file': '\v\.(exe|so|dll|swp)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
 
 " allow JSX in js files
 let g:jsx_ext_required = 0
