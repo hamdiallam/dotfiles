@@ -6,6 +6,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 
+" Marked 2 easy integration
+Plug 'itspriddle/vim-marked'
 
 " Language pack
 Plug 'sheerun/vim-polyglot'
@@ -22,8 +24,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Asynchronous linting engine. YES
 Plug 'w0rp/ale'
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'd11wtq/ctrlp_bdelete.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'd11wtq/ctrlp_bdelete.vim'
 
 " <leader>ww to select pane and repeat to swap
 Plug 'wesQ3/vim-windowswap'
