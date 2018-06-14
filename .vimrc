@@ -5,11 +5,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins"
+" Plugins
 source ~/.vim/plugins.vim
 
-Ctrlp delete buffer feature
-call ctrlp_bdelete#init()
+"Ctrlp delete buffer feature
+"call ctrlp_bdelete#init()
 
 filetype plugin indent on
 set nocompatible
@@ -62,7 +62,7 @@ set mouse=a
 set hidden
 
 " new way to close buffers. does not close the window
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>.
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " paste mode for large bodies of text. I don't think I've ever used this but
 " yeah
@@ -124,14 +124,14 @@ if !exists('g:airline_symbols')
 endif
 
 " Ctrl-p settings. enable saving the cache for large file directories
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+"let g:ctrlp_clear_cache_on_exit = 1
+"let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*,*/.DS_Store
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
-  \ 'file': '\v\.(exe|so|dll|swp)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+"  \ 'file': '\v\.(exe|so|dll|swp)$',
+"  \ 'link': 'some_bad_symbolic_links',
+"  \ }
 
 
 " allow JSX in js files
