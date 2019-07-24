@@ -30,9 +30,6 @@ Plug 'w0rp/ale'
 " <leader>ww to select pane and repeat to swap
 Plug 'wesQ3/vim-windowswap'
 
-" Autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do' : '~/.vim/plugged/YouCompleteMe/install.py --gocode-completer --tern-completer' }
-
 " Git wrapper. Still gotta learn how to use this
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
