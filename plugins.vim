@@ -12,6 +12,7 @@ Plug 'itspriddle/vim-marked'
 " Language pack
 Plug 'sheerun/vim-polyglot'
 Plug 'derekwyatt/vim-scala'
+Plug 'kevints/vim-aurora-syntax'
 
 " Go cli wrapper. similar to fugitive
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
