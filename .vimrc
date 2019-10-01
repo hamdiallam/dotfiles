@@ -133,6 +133,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/.git/*,*/.DS_Store
 "  \ 'link': 'some_bad_symbolic_links',
 "  \ }
 
+" integreation with ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " allow JSX in js files
 let g:jsx_ext_required = 0
