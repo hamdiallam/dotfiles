@@ -8,9 +8,6 @@ endif
 " Plugins
 source ~/.vim/plugins.vim
 
-"Ctrlp delete buffer feature
-"call ctrlp_bdelete#init()
-
 filetype plugin indent on
 set nocompatible
 
@@ -142,6 +139,11 @@ let NERDTreeShowHidden=1
 let g:NerdTreeQuitOnOpen=0
 let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 nnoremap <leader>ne :NERDTreeToggle<cr>
+
+" vim-polyglot and vim-go collide"
+let g:polyglot_disabled = ['go']
+
+let g:go_def_mode='gopls'
 
 " AutoCommands
 
