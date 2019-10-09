@@ -27,6 +27,8 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+export PATH=/usr/local/opt/python@2/libexec/bin:$PATH
+
 # force virtual environments for python
 # export PIP_REQUIRE_VIRTUALENV=true
 
