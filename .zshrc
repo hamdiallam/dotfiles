@@ -3,11 +3,19 @@ zstyle ':completion:*' menu select
 
 # Ansi Colors in iTerm2
 export CLICOLOR=1
+
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
 
-# Default editor
-export EDITOR=/usr/local/bin/vim
+# Default editor. Use macvim if available & set alias' for them
+editor=/usr/local/bin/vim
+if [ -x '/usr/local/bin/mvim' ]
+then
+    editor=/usr/local/bin/mvim
+    alias vim='mvim -v'
+    alias vi='mvim -v'
+fi
+export EDITOR=$editor
 
 # React-Native Android Stuff
 export ANDROID_HOME=${HOME}/Library/Android/sdk
@@ -41,3 +49,6 @@ export PATH=$PATH:$GOROOT/bin
 export GEM_HOME=~/.gem
 export GEM_PATH=~/.gem
 export PATH=$PATH:$GEM_PATH/bin
+
+# pyenv init when starting the shell
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
