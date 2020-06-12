@@ -79,7 +79,7 @@ set incsearch
 set splitright splitbelow
 
 " quick Edit/Source vimrc
-nnoremap <silent> <leader>ev :vsplit ~/.dotfiles/.vimrc<cr>
+nnoremap <silent> <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr> 
 
 " Create new Lines without Insert, small
