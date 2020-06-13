@@ -61,7 +61,7 @@ fi
 # git branch in zsh prompt
 function git_branch() {
     ## get the curent branch name
-    branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+    branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="refs/heads/"} {print $NF}')
     if [[ $branch == "" ]]; then
         echo :
     else
