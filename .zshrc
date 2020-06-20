@@ -63,7 +63,7 @@ function git_branch() {
     ## get the curent branch name
     branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="refs/heads/"} {print $NF}')
     if [[ $branch == "" ]]; then
-        echo :
+        echo ''
     else
         echo ' ['$branch'] '
     fi
