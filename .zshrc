@@ -42,12 +42,6 @@ fi
 # openssl module not found issue with django
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
-# go lang
-export GOPATH=/usr/local/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
 # gem
 export GEM_HOME=~/.gem
 export GEM_PATH=~/.gem
@@ -57,16 +51,3 @@ export PATH=$PATH:$GEM_PATH/bin
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)";
 fi
-
-# git branch in zsh prompt
-function git_branch() {
-    ## get the curent branch name
-    branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="refs/heads/"} {print $NF}')
-    if [[ $branch == "" ]]; then
-        echo ''
-    else
-        echo ' ['$branch'] '
-    fi
-}
-setopt prompt_subst # allow command substitution in the prompt
-PROMPT='%~ $(git_branch) > ' # set the prompt value
