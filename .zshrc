@@ -51,3 +51,6 @@ export PATH=$PATH:$GEM_PATH/bin
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)";
 fi
+
+# Homewbrew binaries
+eval "$(/opt/homebrew/bin/brew shellenv)"

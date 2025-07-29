@@ -1,0 +1,3 @@
+[submodule "neodark.vim"]
+	path = neodark.vim
+	url = https://github.com/KeitaNakamura/neodark.vim
