@@ -54,3 +54,7 @@ fi
 
 # Homewbrew binaries
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# nvm (installed via homebrew)
+export NVM_DIR=$HOME/.nvm
+source /opt/homebrew/opt/nvm/nvm.sh

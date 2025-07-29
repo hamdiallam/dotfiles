@@ -1,3 +1,6 @@
 [submodule "neodark.vim"]
 	path = neodark.vim
-	url = https://github.com/KeitaNakamura/neodark.vim
+	url = git@github.com:KeitaNakamura/neodark.vim
+[submodule "fonts"]
+	path = fonts
+	url = git@github.com:powerline/fonts
