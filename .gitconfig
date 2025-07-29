@@ -1,0 +1,12 @@
+[user]
+	name = Hamdi Allam
+	email = hamdi.allam97@gmail.com
+	signingkey = /Users/hamdi/.ssh/id_ed25519
+[core]
+	editor = vim
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

@@ -3,8 +3,15 @@
 # Dotfiles installer script
 # Creates hard links from home directory to dotfiles in this directory
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HOME_DIR="$HOME"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES=(
+    ".vimrc"
+    ".gvimrc"
+    ".tmux.conf"
+    ".zshrc"
+    ".gitconfig"
+)
 
 # Colors for output
 RED='\033[0;31m'
@@ -63,14 +70,6 @@ print_status "Starting dotfiles installation..."
 print_status "Dotfiles directory: $DOTFILES_DIR"
 print_status "Home directory: $HOME_DIR"
 echo
-
-# List of dotfiles to link
-DOTFILES=(
-    ".vimrc"
-    ".gvimrc"
-    ".tmux.conf"
-    ".zshrc"
-)
 
 # Create hard links for each dotfile
 for dotfile in "${DOTFILES[@]}"; do
