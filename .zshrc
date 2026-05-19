@@ -60,10 +60,10 @@ fi
 # Homewbrew binaries
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# nvm (installed via homebrew)
-export NVM_DIR=$HOME/.nvm
-[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
-[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+# nvm (installed via bash script)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Created by `pipx` on 2025-11-12 16:42:42
 export PATH="$PATH:/Users/hamdi/.local/bin"
@@ -72,3 +72,9 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 # Rust
 . "$HOME/.cargo/env"
 
+# pnpm
+export PNPM_HOME="/Users/hamdi/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
